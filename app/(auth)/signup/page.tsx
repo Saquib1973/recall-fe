@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/store/Store'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 const SignUpPage = () => {
   const { signupUser } = useAuth()
   const router = useRouter()
@@ -33,17 +33,20 @@ const SignUpPage = () => {
         router.push('/signin')
       }, 1500)
     } else {
-      if (result.message) setError(result?.message);
-      else setError('Something went wrong. Please try again.');
+      if (result.message) setError(result?.message)
+      else setError('Something went wrong. Please try again.')
     }
   }
 
   return (
-        <motion.div
-            initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-    className="flex flex-col gap-2">
-      <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex flex-col gap-2"
+    >
+      <h1 className="text-3xl tracking-wider text-center mb-8 font-bold my-4">
+        Sign Up
+      </h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label
@@ -55,7 +58,7 @@ const SignUpPage = () => {
           <Input
             type="text"
             name="username"
-            placeholder="Enter your username"
+            placeholder="Enter your unique username"
             value={data.username}
             onChange={handleInputChange}
           />

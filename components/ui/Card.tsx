@@ -14,26 +14,27 @@ import Note from '../icons/Note'
 import Pinterest from '../icons/Pinterest'
 import Twitter from '../icons/Twitter'
 import Youtube from '../icons/Youtube'
-import DeleteModal from './DeleteModal'
+import DeleteModal from './Modal'
 import { AnimatePresence } from 'framer-motion';
+import Modal from './Modal'
 
 const cardBgArr = [
-  'bg-red-50 text-red-900',
-  'bg-blue-50 text-blue-900',
-  'bg-green-50 text-green-900',
-  'bg-yellow-50 text-yellow-900',
-  'bg-pink-50 text-pink-900',
-  'bg-purple-50 text-purple-900',
-  'bg-indigo-50 text-indigo-900',
-  'bg-gray-50 text-gray-900',
-  'bg-cyan-50 text-cyan-900',
-  'bg-rose-50 text-rose-900',
-  'bg-emerald-50 text-emerald-900',
-  'bg-violet-50 text-violet-900',
-  'bg-sky-50 text-sky-900',
-  'bg-amber-50 text-amber-900',
-  'bg-lime-50 text-lime-900',
-  'bg-orange-50 text-orange-900',
+  'bg-red-50 text-red-700',
+  'bg-blue-50 text-blue-700',
+  'bg-green-50 text-green-700',
+  'bg-yellow-50 text-yellow-700',
+  'bg-pink-50 text-pink-700',
+  'bg-purple-50 text-purple-700',
+  'bg-indigo-50 text-indigo-700',
+  'bg-gray-50 text-gray-700',
+  'bg-cyan-50 text-cyan-700',
+  'bg-rose-50 text-rose-700',
+  'bg-emerald-50 text-emerald-700',
+  'bg-violet-50 text-violet-700',
+  'bg-sky-50 text-sky-700',
+  'bg-amber-50 text-amber-700',
+  'bg-lime-50 text-lime-700',
+  'bg-orange-50 text-orange-700',
 ]
 
 const Card = ({
@@ -189,7 +190,8 @@ const Card = ({
     >
       <AnimatePresence>
         {open && (
-          <DeleteModal
+          <Modal
+            description="Are you sure you want to delete this content"
             key="delete-modal"
             open={open}
             onClose={onClose}
@@ -210,8 +212,8 @@ const Card = ({
         <div className="flex mb-2 flex-wrap gap-1 py-0.5">
           {tags?.map((curr, index) => (
             <span
-            key={index}
-            className="text-xs bg-white border text-offblack px-2 py-0.5 rounded-lg"
+              key={index}
+              className="text-xs bg-white border text-offblack px-2 py-0.5 rounded-lg"
             >
               {/* @ts-ignore */}
               {curr.tag}

@@ -22,10 +22,13 @@ interface AuthWrapperProps {
   children: React.ReactNode
 }
 
-interface DeleteModalProps {
+interface ModalProps {
   open?: boolean
   onClose: () => void
+  confirmText?: string
+  cancelText?:string
   onConfirm: () => void
+  description: string
 }
 interface InputProps {
   type?: string;
@@ -37,4 +40,4 @@ interface InputProps {
 }
 
 
-export type { CardProps,ButtonProps,AuthWrapperProps ,DeleteModalProps,InputProps}
+export type { CardProps,ButtonProps,AuthWrapperProps ,ModalProps,InputProps}

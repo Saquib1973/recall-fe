@@ -24,7 +24,7 @@ const Button = ({variant="primary",size="md",text,startIcon,endIcon,css,onClick 
         {...rest}
       >
         {startIcon}
-        <span className={startIcon || endIcon ? "max-md:hidden":""}>
+        <span className={startIcon || endIcon ? "max-lg:hidden":""}>
         {text}
         </span>
         {endIcon}

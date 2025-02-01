@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from './Button'
-import type { DeleteModalProps } from '.';
+import type { ModalProps } from '.';
 import { motion } from 'framer-motion'
-const DeleteModal = ({onClose,onConfirm}:DeleteModalProps) => {
+const Modal = ({onClose,onConfirm,description,confirmText="Yes",cancelText="No"}:ModalProps) => {
 
   return (
       <motion.div
@@ -19,11 +19,11 @@ const DeleteModal = ({onClose,onConfirm}:DeleteModalProps) => {
           className="bg-white w-[400px] max-md:p-4 p-8 relative rounded-lg flex flex-col gap-2"
         >
           <h1 className="text-xl font-semibold">
-            Are you sure you want to delete this content
+            {description}
           </h1>
-          <div className="flex gap-2 justify-end">
+          <div className="flex gap-2 pt-4 justify-end">
             <Button
-              text="Yes"
+              text={confirmText}
               variant="secondary"
               css="bg-red-400 text-white border-none"
               onClick={() => {
@@ -32,11 +32,11 @@ const DeleteModal = ({onClose,onConfirm}:DeleteModalProps) => {
               }}
               size="md"
             />
-            <Button text="No" variant="secondary" onClick={onClose} size="md" />
+            <Button text={cancelText} variant="secondary" onClick={onClose} size="md" />
           </div>
         </div>
       </motion.div>
     )
 }
 
-export default DeleteModal
+export default Modal
