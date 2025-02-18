@@ -16,6 +16,8 @@ import { useDebounce } from '@/hooks'
 import Close from '../icons/Close'
 import Loader from './Loader'
 import Modal from './Modal'
+import Setting from '../icons/Setting'
+import LogoInitial from '../icons/LogoInitial'
 
 type Result = {
   _id: string
@@ -72,17 +74,17 @@ const Header = () => {
     >
       {open && (
         <Modal
-        confirmText={"Logout"}
-
+          confirmText={'Logout'}
           description="Are you sure you want to logout"
           onClose={() => setOpen(false)}
           onConfirm={logoutUser}
         />
       )}
-      <Link href={'/'} className="flex gap-3 max-sm:hidden items-center">
-        <Logo />
+      <Link href={'/'} className="flex gap-2 md:gap-3 items-center">
+        {/* <Logo /> */}
+        <LogoInitial />
       </Link>
-      <div className="relative w-full mx-2 md:mx-6">
+      <div className="relative w-full mx-1 md:mx-2">
         <span className="flex">
           <input
             type="text"
@@ -133,7 +135,7 @@ const Header = () => {
           )
         )}
       </div>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-2 md:gap-3 items-center">
         <Link href={'/dashboard'} className="">
           <Button
             variant={pathname === '/dashboard' ? 'primary' : 'secondary'}
@@ -152,20 +154,16 @@ const Header = () => {
             onClick={() => {}}
           />
         </Link>
-        <Button
-          text="Share"
-          variant="secondary"
-          onClick={() => alert('Still Building 🛠️')}
-          endIcon={<Share />}
-          css=""
-        />
-        <DropDown />
-        <button
+        <Link href={'/share'} className="max-sm:hidden">
+          <Button variant="secondary" endIcon={<Share />} css="" />
+        </Link>
+        <DropDown setLogout={() => setOpen(!open)} />
+        {/* <button
           className="bg-red-500 max-lg:hidden rounded-full lg:p-3 p-2 text-white"
           onClick={() => setOpen(true)}
         >
           <Power />
-        </button>
+        </button> */}
       </div>
     </motion.div>
   )

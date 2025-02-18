@@ -1,3 +1,4 @@
+"use client"
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import React, { ReactNode } from "react";
 

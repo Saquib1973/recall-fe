@@ -26,6 +26,7 @@ interface ContentState {
   content: any[]
   loading: boolean
   error: string | null
+  sharedLink:string | null
   getContent: () => Promise<void>
   deleteContent: (id: string) => Promise<void>
   createContent: (contentData: Object) => Promise<void>
@@ -33,6 +34,13 @@ interface ContentState {
   page: number
   getChunks: (reset?: boolean) => Promise<void>
   refetchContent?: () => Promise<void>
+  shareRecall: (toggle: boolean) => Promise<void>
+  getShareStatus: () => Promise<ShareStatusResoponseType | null>
 }
+
+export type ShareStatusResoponseType = {
+    link?: { _id: string, hash:string, userId:string }
+    message:string
+  }
 
 export type {UserState, ContentState}

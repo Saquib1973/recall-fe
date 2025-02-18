@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Button from './Button'
 import type { ModalProps } from '.';
@@ -16,7 +17,7 @@ const Modal = ({onClose,onConfirm,description,confirmText="Yes",cancelText="No"}
           onClick={(e) => {
             e.stopPropagation()
           }}
-          className="bg-white w-[400px] max-md:p-4 p-8 relative rounded-lg flex flex-col gap-2"
+          className="bg-white max-w-[400px] text-black max-md:p-4 p-8 relative rounded-lg flex flex-col gap-2"
         >
           <h1 className="text-xl font-semibold">
             {description}
@@ -24,8 +25,8 @@ const Modal = ({onClose,onConfirm,description,confirmText="Yes",cancelText="No"}
           <div className="flex gap-2 pt-4 justify-end">
             <Button
               text={confirmText}
-              variant="secondary"
-              css="bg-red-400 text-white border-none"
+              variant="tertiary"
+              css=""
               onClick={() => {
                 onConfirm()
                 onClose()

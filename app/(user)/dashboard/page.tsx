@@ -6,34 +6,39 @@ import LoadingContent from '@/components/ui/LoadingContent'
 import { useInfiniteScroll, useWindowResize } from '@/hooks'
 import { useAuth, useContent } from '@/store/Store'
 import { calculateColumns } from '@/utils/helper'
-import { useCallback, useEffect, useState, type JSX } from 'react'
-interface Res  {
-      createdAt: string
-      description: string
-      link: string
-      tags: string[]
-      title: string
-      type: string
-      updatedAt: string
-      userId: Object
-      _id: string }
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+interface Res {
+  createdAt: string
+  description: string
+  link: string
+  tags: string[]
+  title: string
+  type: "twitter" | "youtube" | "pinterest" | "instagram" | "others"
+  updatedAt: string
+  userId: { username: string; _id: string }
+  _id: string
+}
 const Page = () => {
   const { isAuthenticated, loading: authLoading } = useAuth()
   const {
-    page,
     loading: contentLoading,
     content,
     getChunks,
     hasMore,
     loadMore,
     resetState,
+    sharedLink,
   } = useContent()
+  console.log(content)
   const viewportWidth = useWindowResize()
   useInfiniteScroll()
 
-  const loadContent = useCallback(() => {
-    if (!loadMore && hasMore) getChunks()
-  }, [loadMore, hasMore, getChunks])
+  // const loadContent = useCallback(() => {
+  //   if (!loadMore && hasMore) getChunks()
+  // }, [loadMore, hasMore, getChunks])
+
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -45,8 +50,8 @@ const Page = () => {
     }
   }, [isAuthenticated, resetState, getChunks])
 
-  const distributeToColumns = (items: Res[], columns: number): any[][] => {
-    const columnArray: any[][] = Array.from({ length: columns }, () => [])
+  const distributeToColumns = (items: Res[], columns: number): Res[][] => {
+    const columnArray: Res[][] = Array.from({ length: columns }, () => [])
 
     items.forEach((item, index) => {
       const columnIndex = index % columns
@@ -56,12 +61,11 @@ const Page = () => {
     return columnArray
   }
 
-  const renderColumns = (columns: JSX.Element[][]) =>
+  const renderColumns = (columns: Res[][]) =>
     columns.map((column, colIndex) => (
-      <div key={colIndex} className="flex flex-col gap-4">
-        {column.map((item: any, index: number) => (
+      <div key={`column-${colIndex}-${column.length}`} className="flex flex-col relative gap-5">
+        {column.map((item: Res) => (
           <Card
-            // @ts-ignore
             index={colIndex}
             key={item._id}
             id={item._id}
@@ -83,10 +87,81 @@ const Page = () => {
       <LoadingContent message="We're bringing all your Recall's to your home feed!" />
     )
   }
+  const handleCopy = () => {
+    if (!sharedLink) return
 
+    navigator.clipboard.writeText(sharedLink)
+    setCopied(true)
+
+    setTimeout(() => {
+      setCopied(false)
+    }, 3000)
+  }
+  console.log("SharedLink",sharedLink)
   return (
-    <div className="screen-height p-3">
-      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+    <div className="screen-height">
+      {sharedLink && (
+        <div className="w-full py-1 border-y flex items-center pr-4 bg-red-100 justify-end">
+          <div className='w-full relative'>
+            <div className="flex overflow-hidden">
+              <motion.div
+                className='shrink-0 whitespace-nowrap flex bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent font-bold'
+                initial={{ x: "0%" }}
+                animate={{ x: "-50%" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 50,
+                  ease: "linear"
+                }}
+              >
+                {[...Array(25)].map((_, i) => (
+                  <span key={i} className="mr-8 text-xl">
+                    ✨ Shared Link ✨
+                  </span>
+                ))}
+                {[...Array(25)].map((_, i) => (
+                  <span key={`dup-${i}`} className="mr-8 text-xl">
+                    ✨ Shared Link ✨
+                  </span>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+          <button
+            onClick={handleCopy}
+            className="z-10 bg-gray-50 text-lg text-center p-1 px-4 flex items-center shadow-inner pr-1 w-fit justify-between gap-3 rounded-full cursor-pointer"
+            aria-label="Copy shared link"
+          >
+            {sharedLink}
+            <AnimatePresence mode="wait">
+              {copied ? (
+                <motion.span
+                  key="copied"
+                  initial={{ opacity: 0, y: -2 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 2 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-green-100 text-lg text-center text-green-700 shadow-inner rounded-full p-0.5 px-2 "
+                >
+                  Copied
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="copy"
+                  initial={{ opacity: 0, y: -2 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 2 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-gray-200 text-lg text-center shadow-inner cursor-pointer rounded-full p-0.5 px-2 "
+                >
+                  Copy
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
+      )}
+      <div className="grid gap-5 grid-cols-1 p-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         {renderColumns(columns)}
       </div>
       {loadMore && (
@@ -95,7 +170,7 @@ const Page = () => {
         </div>
       )}
       {!hasMore && (
-        <p className="text-center text-offblack  pb-6 py-10">
+        <p className="text-center text-offblack  pb-6 py-10 ">
           No more content to show
         </p>
       )}

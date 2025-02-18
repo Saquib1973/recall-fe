@@ -60,31 +60,34 @@ const CreateLink = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="mt-6 px-10 max-md:px-4"
+      className="flex justify-center items-center"
     >
-      <div className="p-6  max-w-5xl flex flex-col w-full">
-        <h1 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-10">Your Recall</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="flex flex-col w-full">
+        <h1 className="text-xl md:text-2xl py-6 font-semibold mb-6 md:mb-10 border-y w-full pl-6">Create Recall</h1>
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl p-1 max-md:px-6 w-full mx-auto">
           <Input
             name="title"
+            label="title"
             value={formData.title}
             onChange={handleChange}
             required
             placeholder="Title"
             type="text"
             className="p-2 w-full border rounded-lg"
-          />
+            />
 
           <Input
             name="link"
+            label="link"
             value={formData.link}
             onChange={handleChange}
             placeholder="Enter link"
             type="url"
             className="p-2 w-full border rounded-lg"
-          />
+            />
 
           <TextArea
+            label="Decsription"
             name="description"
             value={formData.description}
             onChange={handleChange}
@@ -92,9 +95,10 @@ const CreateLink = () => {
             type="textarea"
             className="p-2 w-full border rounded-lg"
             rows={4}
-          />
+            />
           <Input
             name="tags"
+            label="tags"
             value={formData.tags?.join(', ') || ''}
             onChange={handleTagsChange}
             placeholder="Enter tags (e.g., tag1, tag2, tag3)"
@@ -102,7 +106,7 @@ const CreateLink = () => {
             className="p-2 w-full border rounded-lg"
           />
 
-          <Button variant="secondary" text="Submit" css="" type="submit" />
+          <Button variant="tertiary" text="Submit" css="ml-auto" type="submit" />
         </form>
       </div>
     </motion.div>

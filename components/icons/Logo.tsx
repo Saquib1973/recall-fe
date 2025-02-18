@@ -9,11 +9,8 @@ const Logo = ({ css, size="md" }: { css?: string, size?: "sm"|"md"|"lg" }) => {
   return (
     <div className="rounded-md hover:bg-offwhite transition-all p-2 border">
       <svg
-        width="254"
-        height="97"
         viewBox="0 0 254 97"
-        fill="none"
-        className={`${css ? css : ''} ${sz[size]} h-fit`}
+        className={`${css ? css : ''} ${sz[size]} h-fit stroke-red-500 fill-red-500`}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

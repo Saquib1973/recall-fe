@@ -3,7 +3,7 @@ import Logo from '../icons/Logo'
 
 export function Footer() {
   return (
-    <div className='w-full bg-white border-t pt-4'>
+    <div className='w-full pt-4'>
       <footer className="max-w-6xl mx-auto px-4 p-2">
         <div className="flex flex-row flex-wrap items-center justify-center space-y-3 gap-6 text-center md:justify-between">
           <Logo size="md" />

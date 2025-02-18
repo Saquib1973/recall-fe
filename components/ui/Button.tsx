@@ -1,11 +1,12 @@
+'use client'
+
 import React from 'react'
 import type { ButtonProps } from '.'
 
 const buttonStyles = {
-  primary:
-    'border-transparent bg-black text-white',
-  secondary:
-  '',
+  primary: 'border-transparent bg-black text-white',
+  secondary: 'bg-white text-black',
+  tertiary:"bg-red-500 text-white"
 }
 const sizeStyles = {
   sm: 'px-3 py-2 text-sm font-light',
@@ -15,7 +16,16 @@ const sizeStyles = {
 const globalStyles =
   'border capitalize rounded-3xl tracking-wider flex gap-2 items-center justify-center'
 
-const Button = ({variant="primary",size="md",text,startIcon,endIcon,css,onClick ,...rest}: ButtonProps) => {
+const Button = ({
+  variant = 'primary',
+  size = 'md',
+  text,
+  startIcon,
+  endIcon,
+  css,
+  onClick,
+  ...rest
+}: ButtonProps) => {
   return (
     <div>
       <button
@@ -24,11 +34,10 @@ const Button = ({variant="primary",size="md",text,startIcon,endIcon,css,onClick 
         {...rest}
       >
         {startIcon}
-        <span className={startIcon || endIcon ? "max-lg:hidden":""}>
-        {text}
+        <span className={!text ? "hidden" : startIcon || endIcon ? 'max-lg:hidden' : ''}>
+          {text}
         </span>
         {endIcon}
-
       </button>
     </div>
   )

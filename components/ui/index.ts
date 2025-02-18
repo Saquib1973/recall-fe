@@ -9,9 +9,9 @@ interface CardProps {
   index?:number
 }
 interface ButtonProps {
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'tertiary'
   size?: 'sm' | 'md' | 'lg'
-  text: string
+  text?: string
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   onClick?: () => void
@@ -34,6 +34,7 @@ interface InputProps {
   type?: string;
   placeholder: string;
   value?: string;
+  label?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   [key: string]: any;

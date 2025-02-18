@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import axios from 'axios'
 import { env } from '@/utils/config'
 import { LS } from '@/utils/helper'
+import { setTimeout } from 'timers'
 
 interface ContentState {
   content: any[]
@@ -14,6 +15,7 @@ interface ContentState {
   createContent: (contentData: object) => Promise<void>
   deleteContent: (contentId: string) => Promise<void>
   resetState: () => void
+  shareRecall :()=>void
 }
 
 export const useContent = create<ContentState>((set, get) => ({
@@ -73,6 +75,13 @@ export const useContent = create<ContentState>((set, get) => ({
     } catch (error) {
       set({ error: 'Failed to delete content' })
     }
+  },
+  shareRecall: () => {
+    set({ loading: true });
+    console.log("Sharing Recall")
+    setTimeout(() => {
+      set({ loading: false });
+    }, 4000);
   },
 
   resetState: () => set({ content: [], page: 1, hasMore: true }),

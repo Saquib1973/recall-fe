@@ -90,6 +90,10 @@ const useAuth = create<UserState>((set, get) => ({
   },
 }))
 
+const userContext = create((set, get) => {
+
+})
+
 const useContent = create<ContentState>((set, get) => ({
   //variables
   calls: 0,
@@ -99,6 +103,7 @@ const useContent = create<ContentState>((set, get) => ({
   error: null,
   page: 1,
   hasMore: true,
+  sharedLink: null,
 
   //functions
   resetState: () => {
@@ -197,70 +202,60 @@ const useContent = create<ContentState>((set, get) => ({
       set({ loading: false, error: 'Failed to create Recall' })
     }
   },
-  // getChunks: async () => {
-  //   get().increaseCalls()
-  //   const { hasMore, loadMore, page } = get()
-  //   if (!hasMore || loadMore) return
-  //   set({ loadMore: true })
-  //   try {
-  //     const token = LS.getItem('recall_auth_token')
-  //     const response = await axios.get(
-  //       `${env.BACKEND_URL}/content/chunk?page=${page}`,
-  //       {
-  //         headers: {
-  //           authorization: `${token}`,
-  //         },
-  //       }
-  //     )
-  //     const newContent = response.data.content
-  //     const limit = page !== 1 ? 10 : 20
-  //     set({
-  //       content: [...get().content, ...response.data.content],
-  //       page: get().page + 1,
-  //       hasMore: newContent.length === limit,
-  //       loadMore: false,
-  //     })
-  //   } catch (error) {
-  //     console.error('Error fetching more content:', error)
-  //     set({ error: 'Failed to fetch more content', loadMore: false })
-  //   }
-  // },
+  shareRecall: async (toggle) => {
+    set({ loading: true })
+    console.log('Sharing Recall', toggle)
 
-  // deleteContent: async (contentId) => {
-  //   get().increaseCalls()
-  //   try {
-  //     const response = await axios.delete(env.BACKEND_URL + '/content', {
-  //       data: { contentId },
-  //       headers: {
-  //         authorization: LS.getItem('recall_auth_token'),
-  //       },
-  //     })
-  //     get().getContent()
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // },
-  // createContent: async (contentData) => {
-  //   get().increaseCalls()
-  //   set({ loading: true })
-  //   try {
-  //     const token = LS.getItem('recall_auth_token')
-  //     const response = await axios.post(
-  //       `${env.BACKEND_URL}/content`,
-  //       contentData,
-  //       {
-  //         headers: {
-  //           authorization: `${token}`,
-  //         },
-  //       }
-  //     )
-  //     // get().getContent()
-  //     set({ loading: false })
-  //   } catch (error) {
-  //     console.error('Error creating content:', error)
-  //     set({ loading: false, error: 'Failed to create Recall' })
-  //   }
-  // },
+    try {
+      const token = LS.getItem('recall_auth_token')
+      const shared = await axios.post(
+        `${env.BACKEND_URL}/content/share`,
+        { share: toggle },
+        {
+          headers: { authorization: `${token}` },
+        }
+      )
+
+      console.log(shared)
+
+      if (shared.data && shared.data.link?.hash) {
+        set({ sharedLink: shared.data.link.hash })
+      } else {
+        set({ sharedLink: null }) // Only set to null if there's no link
+      }
+    } catch (error) {
+      console.error('Error sharing recall:', error)
+    }
+
+    setTimeout(() => {
+      set({ loading: false })
+    }, 4000)
+  },
+  getShareStatus: async () => {
+  get().increaseCalls();
+  set({ loading: true });
+
+  try {
+    const token = LS.getItem('recall_auth_token');
+    const response = await axios.get(`${env.BACKEND_URL}/content/share`, {
+      headers: { authorization: `${token}` },
+    });
+
+    set({ loading: false });
+
+    if (response.data && response.data.link?.hash) {
+      set({ sharedLink: response.data.link.hash }); // ✅ Store the fetched link in state
+    } else {
+      set({ sharedLink: null }); // ✅ If there's no link, clear it
+    }
+
+    return response.data;
+  } catch (error) {
+    set({ loading: false });
+    console.error('Error fetching share status:', error);
+    return { success: false, message: 'Failed to fetch share status' };
+  }
+},
 }))
 
 export { useAuth, useContent }
