@@ -6,6 +6,12 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow-y: auto;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 @layer components {
@@ -17,5 +23,26 @@ body {
   }
   .transition {
     @apply transition-all duration-500
+  }
+}
+@layer utilities {
+  .columns-2 {
+    column-count: 2;
+  }
+
+  .columns-3 {
+    column-count: 3;
+  }
+
+  .columns-4 {
+    column-count: 4;
+  }
+
+  .columns-5 {
+    column-count: 5;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid;
   }
 }

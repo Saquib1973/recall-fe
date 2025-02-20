@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect } from 'react'
-import Logo from '../icons/Logo'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import { useAuth } from '@/store/Store'
@@ -16,28 +15,22 @@ const HeroHeader = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-between p-3 max-w-6xl mx-auto">
-        {/* <Logo size="lg" /> */}
+      <div className="max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl w-full flex items-center justify-between p-3 max-w-6xl mx-auto">
         <LogoInitial />
         <Loader/>
-
-          {/* <Button text='Wait' css='w-20' /> */}
       </div>
     )
   }
 
   return (
     <div className=''>
-      <div className="flex items-center justify-between p-3 max-w-6xl mx-auto">
+      <div className="max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl flex items-center justify-between p-3 max-w-6xl mx-auto">
       <LogoInitial />
-        {/* <Logo size="lg" /> */}
         <div className="flex gap-2">
           {isAuthenticated ? (
-            <>
               <Link href="/dashboard">
                 <Button text="Dashboard" />
               </Link>
-            </>
           ) : (
               <>
                 <Link href={'/signin'}>

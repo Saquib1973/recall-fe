@@ -199,7 +199,7 @@ const Card = ({
           duration: 0.6,
           delay: (index ?? 0) * 0.1,
         }}
-        className={`break-inside-avoid relative max-h-[800px] cursor-pointer h-fit rounded-3xl gap-3 flex flex-col bg-gray-50 text-black`}
+        className={`break-inside-avoid relative max-h-[800px] cursor-pointer h-fit rounded-3xl gap-3 flex flex-col ${currentBg}  text-black`}
         onClick={()=>router.push('/recall/'+id)}
       >
         <div className="md:p-3 p-4 ">
