@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { motion, animate, cubicBezier, HTMLMotionProps } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,6 +18,7 @@ import {
 import HeroHeader from './HeroHeader'
 import { Footer } from './Footer'
 import TypewriterText from './TypewriterText'
+import { isBrowser } from '@/utils/browser'
 
 const logos = [
   {
@@ -101,6 +102,19 @@ SnapSection.displayName = 'SnapSection'
 
 const HomeHeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [windowHeight, setWindowHeight] = useState(0)
+
+  useEffect(() => {
+    if (!isBrowser()) return;
+    setWindowHeight(window.innerHeight)
+
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <SnapSection ref={containerRef}>
@@ -228,7 +242,7 @@ const HomeHeroSection = () => {
 
       <AnimatedSection
         className="min-h-screen bg-red-400 w-full flex-col overflow-hidden snap-start flex items-center justify-start"
-        scrollTo={window.innerHeight}
+        scrollTo={windowHeight}
         containerRef={containerRef}
       >
         <span className="flex items-center gap-2 min-h-[50px] text-lg text-white font-medium">
@@ -266,7 +280,7 @@ const HomeHeroSection = () => {
 
       <AnimatedSection
         className="relative min-h-screen w-full snap-start bg-white flex items-center justify-center"
-        scrollTo={window.innerHeight * 2}
+        scrollTo={windowHeight * 2}
         containerRef={containerRef}
       >
         <motion.div

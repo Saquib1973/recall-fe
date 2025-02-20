@@ -1,6 +1,7 @@
 'use client'
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { isBrowser } from '@/utils/browser'
 
 interface TypewriterTextProps {
   texts: string[]
@@ -44,6 +45,9 @@ export default function TypewriterText({ texts }: TypewriterTextProps) {
   const rounded = useTransform(count, (latest) => Math.round(latest))
 
   useEffect(() => {
+    // Only run the effect in the browser
+    if (!isBrowser()) return;
+
     const maxLength = Math.max(...texts.map((text) => text.length))
 
     const controls = animate(count, maxLength, {
@@ -73,6 +77,11 @@ export default function TypewriterText({ texts }: TypewriterTextProps) {
 
     return () => controls.stop()
   }, [count, textIndex, texts, updatedThisRound, currentText])
+
+  // Return empty string or loading state during SSR
+  if (!isBrowser()) {
+    return <span>{texts.join(' ')}</span>; // Return the full text for SSR
+  }
 
   return (
     <motion.div
