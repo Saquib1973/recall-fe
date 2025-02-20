@@ -86,18 +86,17 @@ const AnimatedSection: React.FC<{
   </motion.div>
 )
 
-const SnapSection = React.forwardRef<
-  HTMLDivElement,
-  HTMLMotionProps<"div">
->((props, ref) => (
-  <motion.div
-    ref={ref}
-    {...props}
-    className="snap-y snap-mandatory scroll-smooth"
-  >
-    {props.children}
-  </motion.div>
-))
+const SnapSection = React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(
+  (props, ref) => (
+    <motion.div
+      ref={ref}
+      {...props}
+      className="snap-y snap-mandatory scroll-smooth"
+    >
+      {props.children}
+    </motion.div>
+  )
+)
 SnapSection.displayName = 'SnapSection'
 
 const HomeHeroSection = () => {
@@ -105,7 +104,7 @@ const HomeHeroSection = () => {
   const [windowHeight, setWindowHeight] = useState(0)
 
   useEffect(() => {
-    if (!isBrowser()) return;
+    if (!isBrowser()) return
     setWindowHeight(window.innerHeight)
 
     const handleResize = () => {
@@ -273,8 +272,12 @@ const HomeHeroSection = () => {
           </motion.div>
         </motion.div>
         <div className="flex  py-10 gap-6">
-          <Button text={'Get Started'} variant="primary" />
-          <Button text={'Help ?'} variant="secondary" />
+          <Link href={'/dashboard'}>
+            <Button text={'Get Started'} variant="primary" />
+          </Link>
+          <Link href={'/help'}>
+            <Button text={'Help ?'} variant="secondary" />
+          </Link>
         </div>
       </AnimatedSection>
 
@@ -301,13 +304,11 @@ const HomeHeroSection = () => {
             If you find Recalll helpful, consider giving us a star on GitHub. It
             helps us grow and motivates us to keep improving!
           </p>
-          <motion.a
-            href="https://github.com/yourusername/recalll"
+          <Link
+            href="https://github.com/Saquib1973/recall-fe"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             {/* Github SVG */}
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -318,7 +319,7 @@ const HomeHeroSection = () => {
               />
             </svg>
             Star on GitHub
-          </motion.a>
+          </Link>
         </motion.div>
         <div className="absolute bottom-0 w-full z-[1000]">
           <Footer />
