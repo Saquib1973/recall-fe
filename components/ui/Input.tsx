@@ -20,7 +20,7 @@ const Input: React.FC<InputProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={` dark:bg-black-2 dark:text-white-1 border dark:border-black-3 p-2 w-full outline-none rounded-md ${className}`}
+      className={` dark:bg-black-2 dark:text-white-1 border bg-white-1.5 dark:border-black-3 p-2 w-full outline-none rounded-md ${className}`}
       {...rest}
       />
       </div>

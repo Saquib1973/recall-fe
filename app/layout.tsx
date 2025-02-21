@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className={`${mali.variable} dark:bg-black-1 bg-white-1 transition ${quicksand.variable} font-quicksand antialiased`}>
+        <body className={`${mali.variable} dark:bg-black-1 bg-white-1 animation ${quicksand.variable} font-quicksand antialiased`}>
           {children}
         </body>
       </ThemeProvider>

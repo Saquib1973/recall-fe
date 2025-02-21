@@ -6,7 +6,7 @@ import type { ButtonProps } from '.'
 const buttonStyles = {
   primary:
     'border-transparent bg-black-1 text-white-1 dark:bg-white-1 dark:text-black-1 ',
-  secondary: 'bg-white-1 text-black-1 dark:bg-black-1 dark:text-white-1',
+  secondary: 'bg-white-1 text-black-1 border- dark:bg-black-1 dark:text-white-1',
   tertiary: 'border-transparent bg-red-2 text-white-1',
 }
 const sizeStyles = {
@@ -15,7 +15,7 @@ const sizeStyles = {
   lg: 'px-2 py-1 md:px-6 md:py-3 text-base md:text-lg font-semibold',
 }
 const globalStyles =
-  'border dark:border-black-3 border-white-2 capitalize rounded-full tracking-wider flex gap-2 items-center justify-center'
+  'border dark:border-black-3 border-white-3 capitalize rounded-full tracking-wider flex gap-2 items-center justify-center'
 
 const Button = ({
   variant = 'primary',

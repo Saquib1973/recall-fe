@@ -8,7 +8,7 @@ const page = () => {
     <FadeInWrapper>
       <div>
         <div className="flex gap-2 items-center">
-          <button className="dark:bg-black-2 dark:text-white-2 bg-white-2 p-2 px-5 rounded-full" onClick={setTheme}>Switch Theme</button>
+          <button className="dark:bg-black-2 dark:text-white-2 bg-white-1.5 p-2 px-5 rounded-full" onClick={setTheme}>Switch Theme</button>
         </div>
       </div>
     </FadeInWrapper>

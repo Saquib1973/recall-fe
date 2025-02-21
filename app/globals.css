@@ -24,8 +24,27 @@ html {
   .dropdown-item {
     @apply block px-4 py-2 text-black-1 dark:text-white-2
   }
-  .transition {
-    @apply transition-all duration-500
+  .animation{
+    @apply transition-all ease-linear duration-300
+  }
+
+  .h1-mali {
+    @apply font-mali text-5xl my-1
+  }
+  .h1-quicksand {
+    @apply font-quicksand text-5xl
+  }
+  .h2-mali {
+    @apply font-mali text-3xl
+  }
+  .h2-quicksand {
+    @apply font-quicksand text-3xl
+  }
+  .p-mali {
+    @apply font-mali
+  }
+  .p-quicksand {
+    @apply font-quicksand
   }
 }
 @layer utilities {

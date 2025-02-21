@@ -43,7 +43,7 @@ const DarkModeToggle = () => {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="size-6 -rotate-60"
+        className="md: size-5 size-4 lg:size-6 -rotate-60"
         transition={{ duration: 0.7, ease: 'easeInOut' }}
       >
         <motion.path

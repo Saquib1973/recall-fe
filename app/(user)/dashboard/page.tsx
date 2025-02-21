@@ -97,11 +97,11 @@ const Page = () => {
   return (
     <div className="screen-height">
       {sharedLink && (
-        <div className="w-full py-1 border-y flex items-center pr-4 bg-red-100 justify-end">
+        <div className="w-full py-1 border-y border-white-2 dark:border-black-2 flex items-center pr-4 justify-end">
           <div className='w-full relative'>
             <div className="flex overflow-hidden">
               <motion.div
-                className='shrink-0 whitespace-nowrap flex bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent font-bold'
+                className='shrink-0 whitespace-nowrap flex  bg-clip-text text-black-3 dark:text-white-3 font-bold'
                 initial={{ x: "0%" }}
                 animate={{ x: "-50%" }}
                 transition={{
@@ -112,12 +112,12 @@ const Page = () => {
               >
                 {[...Array(25)].map((_, i) => (
                   <span key={i} className="mr-8 text-xl">
-                    ✨ Shared Link ✨
+                    Shared Link 🔗
                   </span>
                 ))}
                 {[...Array(25)].map((_, i) => (
                   <span key={`dup-${i}`} className="mr-8 text-xl">
-                    ✨ Shared Link ✨
+                    Shared Link 🔗
                   </span>
                 ))}
               </motion.div>
@@ -125,7 +125,7 @@ const Page = () => {
           </div>
           <button
             onClick={handleCopy}
-            className="z-10 bg-gray-50 text-lg text-center p-1 px-4 flex items-center shadow-inner pr-1 w-fit justify-between gap-3 rounded-full cursor-pointer"
+            className="bg-white-2 dark:bg-black-2 dark:text-white-2 text-black-2 z-10 text-lg text-center p-1 px-4 flex items-center shadow-inner pr-1 w-fit justify-between gap-3 rounded-full cursor-pointer"
             aria-label="Copy shared link"
           >
             {sharedLink}
@@ -137,7 +137,7 @@ const Page = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 2 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-green-100 text-lg text-center text-green-700 shadow-inner rounded-full p-0.5 px-2 "
+                  className="bg-green-600 text-lg text-center text-white-1 shadow-inner rounded-full p-0.5 px-2 "
                 >
                   Copied
                 </motion.span>
@@ -148,7 +148,7 @@ const Page = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 2 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-gray-200 text-lg text-center shadow-inner cursor-pointer rounded-full p-0.5 px-2 "
+                  className="bg-white-1 dark:bg-black-1 text-lg text-center shadow-inner cursor-pointer rounded-full p-0.5 px-2 "
                 >
                   Copy
                 </motion.span>

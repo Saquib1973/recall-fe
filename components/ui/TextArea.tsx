@@ -24,7 +24,7 @@ const TextArea: React.FC<TextAreaProps> = ({
     <div className="flex flex-col gap-0.5 w-full">
       <label className="text-black-3 capitalize">{label}</label>
       <textarea
-        className={`bg-white dark:bg-black-2 border dark:border-black-3  h-[200px] w-full resize-none p-2 outline-none text-white-2 rounded-md ${className}`}
+        className={`bg-white dark:bg-black-2 border bg-white-1.5 dark:border-black-3  h-[200px] w-full resize-none p-2 outline-none text-white-2 rounded-md ${className}`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

@@ -87,7 +87,7 @@ export default function Page() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 5 }}
                       transition={{ duration: 0.3 }}
-                      className="bg-green-100 text-green-700 shadow-inner rounded-full p-0.5 px-2 text-sm"
+                      className="bg-green-600 text-white-1 shadow-inner rounded-full p-0.5 px-2 text-sm"
                     >
                       Copied
                     </motion.span>

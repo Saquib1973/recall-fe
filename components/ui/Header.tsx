@@ -71,7 +71,7 @@ const Header = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1 z-50 sticky top-0 left-0 w-full p-4 px-4 md:px-6 gap-2 items-center flex justify-between"
+      className="bg-white-1 animation dark:bg-black-1 text-black-1 dark:text-white-1 z-50 sticky top-0 left-0 w-full p-4 px-4 md:px-6 gap-2 items-center flex justify-between"
     >
       <Modal
         confirmText={'Logout'}
@@ -89,7 +89,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search for anything you saved"
-              className="bg-white-2 dark:bg-black-2 z-20 px-5 pl-12 peer md:px-6 md:pl-12 p-2 md:p-3 outline-none rounded-3xl w-full"
+              className="bg-white-1.5 dark:bg-black-2 z-20 px-5 pl-12 peer md:px-6 md:pl-12 p-2 md:p-3 outline-none rounded-3xl w-full"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}

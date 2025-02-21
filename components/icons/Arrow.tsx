@@ -9,7 +9,7 @@ const Arrow = (props: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={`${IconSizeVariants[props.size || 'md']} ${props.css} bg-black text-white cursor-pointer lg:-ml-4 p-0.5 md:p-1 rounded-full`}
+      className={`${IconSizeVariants[props.size || 'md']} ${props.css} bg-white-2 text-black dark:bg-black-3 dark:text-white-2 cursor-pointer lg:-ml-4 p-0.5 md:p-1 rounded-full`}
       {...props}
     >
       <path

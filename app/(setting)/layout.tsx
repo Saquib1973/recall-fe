@@ -54,7 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <nav className="flex flex-col gap-1">
             <Link
               className={`p-2 px-4 rounded-md text-right ${
-                pathname.includes('share') ? 'bg-white-2 text-black-1 dark:text-white-2 dark:bg-black-2  font-medium' : ''
+                pathname.includes('share') ? 'bg-white-1.5 text-black-1 dark:text-white-2 dark:bg-black-2  font-medium' : ''
               }`}
               href={'/share'}
             >
@@ -62,7 +62,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <Link
               className={`p-2 px-4 rounded-md text-right ${
-                pathname.includes('user') ? 'bg-white-2 text-black-1 dark:text-white-2 dark:bg-black-2  font-medium' : ''
+                pathname.includes('user') ? 'bg-white-1.5 text-black-1 dark:text-white-2 dark:bg-black-2  font-medium' : ''
               }`}
               href={'/user'}
             >

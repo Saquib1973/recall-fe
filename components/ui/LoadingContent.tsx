@@ -10,7 +10,7 @@ const LoadingContent = ({
     <div className="screen-height flex justify-center items-start py-10">
       <div className="flex justify-center flex-col gap-1 items-center">
         <Loader />
-        <p className="text-xl md:text-3xl max-w-[600px] text-center tracking-widest font-light">
+        <p className="text-xl md:text-3xl max-w-[600px] text-center tracking-widest text-black-2 font-light">
           {message}
         </p>
       </div>

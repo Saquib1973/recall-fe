@@ -126,33 +126,24 @@ const HomeHeroSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="max-w-7xl mx-auto px-4 flex flex-col justify-between h-full items-center"
+          className="px-4 flex flex-col w-screen justify-between h-full items-center"
         >
-          <div className="w-full z-50">
+          <div className="w-full max-w-5xl mx-auto">
             <HeroHeader />
           </div>
-          <div className="relative flex flex-col items-center justify-center max-w-lg px-12 w-fit md:max-w-4xl pb-48 pt-12 md:pt-24">
-            <div className="absolute md:w-[500px] w-[300px] -z-10 h-[400px] md:h-[600px]">
-              <Image
-                src="https://i.pinimg.com/736x/de/99/80/de9980f559e809137bbf96585c732777.jpg"
-                alt="VPN Illustrasi"
-                width={612}
-                height={383}
-                className="mix-blend-multiply hidden object-cover w-full h-full blur-sm"
-              />
-            </div>
+          <div className="relative px-2 w-screen flex flex-col items-center justify-center max-w-5xl pb-48 pt-12 md:pt-24">
             <h1 className=" text-center text-6xl font-black dark:text-white-1 md:text-7xl ">
               Organize Your <span className="text-red-2 font-mali underline underline-offset-8">Digital</span> World.
             </h1>
 
-            <p className="mx-auto my-4 max-w-3xl text-center tracking-tight text-base  dark:text-white-3 leading-relaxed md:my-6 md:text-xl md:leading-relaxed">
+            <p className="mx-auto px-2 my-4 max-w-3xl text-center tracking-tight text-base  dark:text-white-3 leading-relaxed md:my-6 md:text-xl md:leading-relaxed">
               Links, Notes, and Ideas, All in One Place. Simplify your life by
               keeping all your links and notes in one secure, user-friendly app.
               Get Started
             </p>
 
             <Link href="/dashboard">
-              <Button text={'Get Started'} css="max-md:w-[400px]" />
+              <Button text={'Get Started'} />
             </Link>
           </div>
 

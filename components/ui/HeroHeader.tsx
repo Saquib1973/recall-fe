@@ -16,7 +16,7 @@ const HeroHeader = () => {
 
   if (loading) {
     return (
-      <div className="bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl w-full flex items-center justify-between p-3 max-w-6xl mx-auto">
+      <div className="animation bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1 w-full flex items-center justify-between p-3">
         <LogoInitial />
         <Loader/>
       </div>
@@ -24,8 +24,7 @@ const HeroHeader = () => {
   }
 
   return (
-    <div>
-      <div className="bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1 max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl flex items-center justify-between p-3 max-w-6xl mx-auto">
+      <div className="animation bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1 w-full  flex items-center justify-between p-3">
         <LogoInitial />
         <div className="flex items-center w-fit gap-4">
           <div className="">
@@ -53,7 +52,6 @@ const HeroHeader = () => {
           )}
         </div>
       </div>
-    </div>
   )
 }
 

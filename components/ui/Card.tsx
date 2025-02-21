@@ -20,22 +20,22 @@ import Modal from './Modal'
 import { useRouter } from 'next/navigation'
 
 const cardBgArr = [
-  'bg-red-50 text-red-800',
-  'bg-blue-50 text-blue-800',
-  'bg-green-50 text-green-800',
-  'bg-yellow-50 text-yellow-800',
-  'bg-pink-50 text-pink-800',
-  'bg-purple-50 text-purple-800',
-  'bg-indigo-50 text-indigo-800',
-  'bg-gray-50 text-gray-800',
-  'bg-cyan-50 text-cyan-800',
-  'bg-rose-50 text-rose-800',
-  'bg-emerald-50 text-emerald-800',
-  'bg-violet-50 text-violet-800',
-  'bg-sky-50 text-sky-800',
-  'bg-amber-50 text-amber-800',
-  'bg-lime-50 text-lime-800',
-  'bg-orange-50 text-orange-800',
+  'bg-red-100 text-red-800',
+  'bg-blue-100 text-blue-800',
+  'bg-green-100 text-green-800',
+  'bg-yellow-100 text-yellow-800',
+  'bg-pink-100 text-pink-800',
+  'bg-purple-100 text-purple-800',
+  'bg-indigo-100 text-indigo-800',
+  'bg-gray-100 text-gray-800',
+  'bg-cyan-100 text-cyan-800',
+  'bg-rose-100 text-rose-800',
+  'bg-emerald-100 text-emerald-800',
+  'bg-violet-100 text-violet-800',
+  'bg-sky-100 text-sky-800',
+  'bg-amber-100 text-amber-800',
+  'bg-lime-100 text-lime-800',
+  'bg-orange-100 text-orange-800',
 ]
 
 const Card = ({
@@ -199,21 +199,21 @@ const Card = ({
           duration: 0.6,
           delay: (index ?? 0) * 0.1,
         }}
-        className={`break-inside-avoid relative max-h-[800px] cursor-pointer h-fit rounded-3xl gap-3 flex flex-col ${currentBg}  text-black`}
+        className={`break-inside-avoid relative max-h-[800px] cursor-pointer h-fit rounded-3xl gap-3 flex flex-col ${currentBg} dark:bg-black-2 text-black-2 dark:text-white-2`}
         onClick={()=>router.push('/recall/'+id)}
       >
         <div className="md:p-3 p-4 ">
           <div className="flex justify-between">
             <div className="flex gap-2 items-center">{renderIcon()}</div>
             <button
-              className="flex gap-1 items-center bg-red-500 md:bg-white pl-1  pr-2 rounded-full p-0.5 hover:bg-red-500 transition group"
+              className="flex gap-1 items-center p-0.5 rounded-full p-0.5 bg-red-2 transition group"
               onClick={(e) => {
                 e.stopPropagation()
                 handleDelete(e)
               }}
             >
               <Delete size="md" />
-              <p className="text-black max-md:text-white group-hover:text-white transition">Delete</p>
+              {/* <p className="">Delete</p> */}
             </button>
           </div>
           <p className="text-2xl my-2 capitalize font-semibold tracking-tight leading-tight">
@@ -230,7 +230,7 @@ const Card = ({
               </span>
             ))}
           </div>
-          <div className="text-sm text-gray-600 leading-[18px]">
+          <div className="text-sm text-black-3 dark:text-white-3 leading-[18px]">
             {description}
           </div>
         </div>

@@ -23,6 +23,7 @@ export default {
         offblack: '#b9b9b9',
         black: '#222831',
         'white-1': '#f8f9fa',
+        'white-1.5': '#EDF0F2',
         'white-2': '#E4E6E9',
         'white-3': '#B0BAC5',
         'red-1': '#DE3163',
