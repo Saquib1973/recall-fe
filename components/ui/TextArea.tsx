@@ -21,18 +21,17 @@ const TextArea: React.FC<TextAreaProps> = ({
   ...rest
 }) => {
   return (
-      <div className="flex flex-col gap-1 w-full">
-
-      <label className="text-gray-500 capitalize">{label}</label>
-    <textarea
-      className={`bg-offwhite h-[200px] w-full resize-none p-2 outline-none rounded-md ${className}`}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      rows={rows}
-      {...rest}
+    <div className="flex flex-col gap-0.5 w-full">
+      <label className="text-black-3 capitalize">{label}</label>
+      <textarea
+        className={`bg-white dark:bg-black-2 border dark:border-black-3  h-[200px] w-full resize-none p-2 outline-none text-white-2 rounded-md ${className}`}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        rows={rows}
+        {...rest}
       />
-      </div>
+    </div>
   )
 }
 

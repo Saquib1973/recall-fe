@@ -1,40 +1,40 @@
 import Link from 'next/link'
-import Logo from '../icons/Logo'
+import LogoInitial from '../icons/LogoInitial'
 
 export function Footer() {
   return (
     <div className='w-full pt-4'>
-      <footer className="max-w-6xl mx-auto px-4 p-2">
+      <footer className="max-w-6xl mx-auto px-4 p-2 dark:text-white-2">
         <div className="flex flex-row flex-wrap items-center justify-center space-y-3 gap-6 text-center md:justify-between">
-          <Logo size="md" />
+            <LogoInitial/>
           <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
             <Link
               href={'/'}
-              className="font-normal transition-colors hover:text-gray-500"
+              className="font-normal"
             >
               About Us
             </Link>
             <Link
               href={'/'}
-              className="font-normal transition-colors hover:text-gray-500"
+              className="font-normal"
             >
               License
             </Link>
             <Link
               href={'/'}
-              className="font-normal transition-colors hover:text-gray-500"
+              className="font-normal"
             >
               Contribute
             </Link>
             <Link
               href={'/'}
-              className="font-normal transition-colors hover:text-gray-500"
+              className="font-normal"
             >
               Contact Us
             </Link>
           </ul>
         </div>
-        <hr className="my-3 border-offblack/20" />
+        <hr className="my-3 border-white-2 dark:border-black-3" />
         <p color="blue-gray" className="text-center font-normal">
           Made with ❤️ by{' '}
           <Link

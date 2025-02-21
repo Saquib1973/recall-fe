@@ -1,57 +1,54 @@
 'use client'
-import Alert from '@/components/ui/Alert';
-import InfiniteScrollContent from '@/components/ui/InfiniteScrollComponent';
-import { useContent } from '@/store/Store';
-import { useEffect } from 'react';
-import { useState } from 'react'
+import Loader from '@/components/ui/Loader';
+import DarkModeToggle from './../../components/ui/DarkModeToggle';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 
-
-// const page = () => {
-//   let { content, loading, error, getContent, getChunks } = useContent();
-//   useEffect(() => {
-
-
-//     getChunks()
-//   }, [getChunks])
-
-//   console.log(content);
-
-//   return (
-//     <div className="p-10 w-full">
-//       <div>
-//         <InfiniteScrollContent />
-//         {/* {content.map((item, index) => (<>{JSON.stringify(item)}</>))} */}
-//       </div>
-//       <button className='border p-2'>Bring Data</button>
-//     </div>
-//   )
-// }
-
-const page = () => {
-  const [showAlert, setShowAlert] = useState(false);
-
+const Page = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-4">
-      <h1 className="text-2xl font-semibold">Page</h1>
-
-      <button
-        onClick={() => setShowAlert(true)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-      >
-        Show Alert
-      </button>
-
-      {showAlert && (
-        <Alert
-          message="This is a success message!"
-          type="error"
-          onClose={() => setShowAlert(false)}
-        />
-      )}
+    <div className="flex flex-col bg-white-1 gap-4 min-h-screen dark:bg-black-1 dark:text-white p-10">
+      <span>
+        <Loader />
+      </span>
+      <DarkModeToggle />
+      <div>
+        <h1 className='text-5xl'>Colors</h1>
+        <div className='flex flex-wrap gap-2'>
+          <div className='w-10 h-10 bg-white-1'></div>
+          <div className='w-10 h-10 bg-white-2'></div>
+          <div className='w-10 h-10 bg-white-3'></div>
+          <div className='w-10 h-10 bg-red-1'></div>
+          <div className='w-10 h-10 bg-red-2'></div>
+          <div className='w-10 h-10 bg-red-3'></div>
+          <div className='w-10 h-10 bg-black-1'></div>
+          <div className='w-10 h-10 bg-black-2'></div>
+          <div className='w-10 h-10 bg-black-3'></div>
+        </div>
+      </div>
+      <div>
+        <h1 className='text-5xl'>Text</h1>
+        <div className='flex flex-wrap gap-2'>
+          <p className='text-2xl font-poiret'>This is Poiret Font Text</p>
+          <p className='text-2xl font-mali'>This is Mali Font Text</p>
+        </div>
+      </div>
+      <div className='flex flex-col mt-4 gap-2'>
+        <h1 className='text-5xl'>Button</h1>
+        <div className='flex flex-wrap gap-2'>
+          <Button variant='primary' text='Primary Button' />
+          <Button variant='secondary' text='Secondary Button' />
+          <Button variant='tertiary' text='Tertiary Button' />
+        </div>
+      </div>
+      <div className='flex flex-col mt-4 gap-2'>
+        <h1 className='text-5xl'>Input</h1>
+        <div className='flex flex-wrap gap-2'>
+         <Input placeholder='Enter your name' />
+        </div>
+      </div>
     </div>
   );
 };
 
-
-export default page
+export default Page
 

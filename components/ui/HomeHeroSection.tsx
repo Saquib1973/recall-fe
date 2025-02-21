@@ -138,14 +138,14 @@ const HomeHeroSection = () => {
                 alt="VPN Illustrasi"
                 width={612}
                 height={383}
-                className="mix-blend-multiply object-cover w-full h-full blur-sm"
+                className="mix-blend-multiply hidden object-cover w-full h-full blur-sm"
               />
             </div>
-            <h1 className=" text-center text-4xl font-black md:text-6xl ">
-              Organize Your <span className="text-red-500">Digital</span> World.
+            <h1 className=" text-center text-6xl font-black dark:text-white-1 md:text-7xl ">
+              Organize Your <span className="text-red-2 font-mali underline underline-offset-8">Digital</span> World.
             </h1>
 
-            <p className="mx-auto my-4 max-w-3xl text-center text-base leading-relaxed md:my-6 md:text-xl md:leading-relaxed">
+            <p className="mx-auto my-4 max-w-3xl text-center tracking-tight text-base  dark:text-white-3 leading-relaxed md:my-6 md:text-xl md:leading-relaxed">
               Links, Notes, and Ideas, All in One Place. Simplify your life by
               keeping all your links and notes in one secure, user-friendly app.
               Get Started
@@ -156,8 +156,8 @@ const HomeHeroSection = () => {
             </Link>
           </div>
 
-          <section className=" -mt-2 -rotate-1 border-y-2 border bg-white">
-            <div className="relative z-0 flex overflow-hidden">
+          <section className=" -mt-2 -rotate-1 border-y-2 border translate-y-5 bg-white-1 dark:bg-black-1">
+            <div className="relative z-0 flex overflow-hidden ">
               <motion.div
                 className="flex px-2"
                 animate={{
@@ -176,7 +176,7 @@ const HomeHeroSection = () => {
                     className="flex items-center justify-center gap-4 px-4 py-2 md:py-4"
                   >
                     {logo.icon}
-                    <span className="whitespace-nowrap text-xl font-semibold uppercase md:text-2xl">
+                    <span className="whitespace-nowrap dark:text-white-1 text-xl font-semibold uppercase md:text-2xl">
                       {logo.name}
                     </span>
                   </span>
@@ -187,7 +187,7 @@ const HomeHeroSection = () => {
                     className="flex items-center justify-center gap-4 px-4 py-2 md:py-4"
                   >
                     {logo.icon}
-                    <span className="whitespace-nowrap text-xl font-semibold uppercase md:text-2xl">
+                    <span className="whitespace-nowrap dark:text-white-1 text-xl font-semibold uppercase md:text-2xl">
                       {logo.name}
                     </span>
                   </span>
@@ -214,7 +214,7 @@ const HomeHeroSection = () => {
                     className="flex items-center justify-center gap-4 px-4 py-2 md:py-4"
                   >
                     {logo.icon}
-                    <span className="whitespace-nowrap text-xl font-semibold uppercase md:text-2xl">
+                    <span className="whitespace-nowrap dark:text-white-1 text-xl font-semibold uppercase md:text-2xl">
                       {logo.name}
                     </span>
                   </span>
@@ -225,7 +225,7 @@ const HomeHeroSection = () => {
                     className="flex items-center justify-center gap-4 px-4 py-2 md:py-4"
                   >
                     {logo.icon}
-                    <span className="whitespace-nowrap text-xl font-semibold uppercase md:text-2xl">
+                    <span className="whitespace-nowrap dark:text-white-1 text-xl font-semibold uppercase md:text-2xl">
                       {logo.name}
                     </span>
                   </span>
@@ -240,14 +240,14 @@ const HomeHeroSection = () => {
       </AnimatedSection>
 
       <AnimatedSection
-        className="min-h-screen bg-red-400 w-full flex-col overflow-hidden snap-start flex items-center justify-start"
+        className="min-h-screen bg-red-2 w-full flex-col overflow-hidden snap-start flex items-center justify-start"
         scrollTo={windowHeight}
         containerRef={containerRef}
       >
-        <span className="flex items-center gap-2 min-h-[50px] text-lg text-white font-medium">
+        <span className="flex items-center gap-2 min-h-[50px] text-xl text-white font-medium">
           Here&apos;s how it works
           <svg
-            className="size-3 stroke-black animate-bounce"
+            className="size-4 stroke-black mt-1 animate-bounce"
             fill="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -271,18 +271,18 @@ const HomeHeroSection = () => {
             />
           </motion.div>
         </motion.div>
-        <div className="flex  py-10 gap-6">
+        <div className="flex py-10 gap-3">
           <Link href={'/dashboard'}>
             <Button text={'Get Started'} variant="primary" />
           </Link>
           <Link href={'/help'}>
-            <Button text={'Help ?'} variant="secondary" />
+            <Button text={'Need Help ?'} variant="secondary" />
           </Link>
         </div>
       </AnimatedSection>
 
       <AnimatedSection
-        className="relative min-h-screen w-full snap-start bg-white flex items-center justify-center"
+        className="relative min-h-screen w-full snap-start bg-white-1 dark:bg-black-1 flex items-center justify-center"
         scrollTo={windowHeight * 2}
         containerRef={containerRef}
       >
@@ -296,11 +296,11 @@ const HomeHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#006B6C] text-6xl font-bold text-center"
+            className="dark:text-white-1 text-5xl md:text-7xl font-bold text-center"
           >
             Support Our Project
           </motion.h2>
-          <p className="text-xl text-center max-w-2xl">
+          <p className="text-xl dark:text-white-3 text-center max-w-2xl">
             If you find Recalll helpful, consider giving us a star on GitHub. It
             helps us grow and motivates us to keep improving!
           </p>
@@ -308,7 +308,7 @@ const HomeHeroSection = () => {
             href="https://github.com/Saquib1973/recall-fe"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full font-medium"
+            className="flex items-center gap-3 bg-black-1 dark:bg-white-1 dark:text-black-1 text-white-1 px-8 py-4 rounded-full font-medium"
           >
             {/* Github SVG */}
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

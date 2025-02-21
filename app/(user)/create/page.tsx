@@ -63,8 +63,8 @@ const CreateLink = () => {
       className="flex justify-center items-center"
     >
       <div className="flex flex-col w-full">
-        <h1 className="text-xl md:text-2xl py-6 font-semibold mb-6 md:mb-10 border-y w-full pl-6">Create Recall</h1>
-        <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl p-1 max-md:px-6 w-full mx-auto">
+        <h1 className="text-xl md:text-2xl py-6 dark:text-white-3 font-semibold mb-6 md:mb-10 border-y text-black-3 border-white-2  dark:border-black-3 w-full pl-6">Create Recall</h1>
+        <form onSubmit={handleSubmit} className="space-y-1 max-w-2xl p-1 max-md:px-6 w-full mx-auto">
           <Input
             name="title"
             label="title"
@@ -103,10 +103,10 @@ const CreateLink = () => {
             onChange={handleTagsChange}
             placeholder="Enter tags (e.g., tag1, tag2, tag3)"
             type="text"
-            className="p-2 w-full border rounded-lg"
+            className="p-2 w-full border rounded-lg mb-4"
           />
 
-          <Button variant="tertiary" text="Submit" css="ml-auto" type="submit" />
+          <Button variant="tertiary" text="Create" css="ml-auto" type="submit" />
         </form>
       </div>
     </motion.div>

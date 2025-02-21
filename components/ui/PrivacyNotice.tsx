@@ -8,9 +8,9 @@ export default function PrivacyNotice() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="mt-3 w-full bg-red-50 text-red-600 p-4 flex flex-col items-center ">
+    <div className="mt-3 w-full bg-white-2 rounded-md text-red-2 p-4 flex flex-col items-center ">
       <button
-        className="w-full flex justify-between items-center font-semibold text-left"
+        className="w-full flex justify-between items-center underline underline-offset-4 text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
         ⚠ Privacy Notice
@@ -28,7 +28,7 @@ export default function PrivacyNotice() {
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className="overflow-hidden text-sm mt-2"
+        className="overflow-hidden text-sm  text-black-1 mt-2"
       >
         <p>
           Anyone with this link can view your recall. Please ensure you share it

@@ -4,9 +4,10 @@ import React from 'react'
 import type { ButtonProps } from '.'
 
 const buttonStyles = {
-  primary: 'border-transparent bg-black text-white',
-  secondary: 'bg-white text-black',
-  tertiary:"bg-red-500 text-white"
+  primary:
+    'border-transparent bg-black-1 text-white-1 dark:bg-white-1 dark:text-black-1 ',
+  secondary: 'bg-white-1 text-black-1 dark:bg-black-1 dark:text-white-1',
+  tertiary: 'border-transparent bg-red-2 text-white-1',
 }
 const sizeStyles = {
   sm: 'px-3 py-2 text-sm font-light',
@@ -14,7 +15,7 @@ const sizeStyles = {
   lg: 'px-2 py-1 md:px-6 md:py-3 text-base md:text-lg font-semibold',
 }
 const globalStyles =
-  'border capitalize rounded-3xl tracking-wider flex gap-2 items-center justify-center'
+  'border dark:border-black-3 border-white-2 capitalize rounded-full tracking-wider flex gap-2 items-center justify-center'
 
 const Button = ({
   variant = 'primary',
@@ -27,9 +28,8 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <div>
       <button
-        className={`flex border ${buttonStyles[variant]}  ${sizeStyles[size]} ${globalStyles} ${css} `}
+        className={`flex ${buttonStyles[variant]}  ${sizeStyles[size]} ${globalStyles} ${css} `}
         onClick={onClick}
         {...rest}
       >
@@ -39,7 +39,6 @@ const Button = ({
         </span>
         {endIcon}
       </button>
-    </div>
   )
 }
 

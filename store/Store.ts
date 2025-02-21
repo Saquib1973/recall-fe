@@ -89,10 +89,18 @@ const useAuth = create<UserState>((set, get) => ({
     }
   },
 }))
-
-const userContext = create((set, get) => {
-
-})
+type UserContextType = {
+  darkMode: boolean
+  setDarkMode: (value: boolean) => void
+  toggleDarkMode: () => void
+}
+const userContext = create<UserContextType>((set, get) => ({
+  darkMode: false,
+  setDarkMode: (value) => set({ darkMode: value }),
+  toggleDarkMode: () => {
+    set((state) => ({ darkMode: !state.darkMode }))
+  },
+}))
 
 const useContent = create<ContentState>((set, get) => ({
   //variables
@@ -258,4 +266,4 @@ const useContent = create<ContentState>((set, get) => ({
 },
 }))
 
-export { useAuth, useContent }
+export { useAuth, useContent, userContext }

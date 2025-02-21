@@ -60,7 +60,7 @@ export default function Page() {
               />
               <span
                 className={`absolute inset-0 cursor-pointer transition-all duration-300 ${
-                  toggle ? 'bg-black' : 'bg-gray-200'
+                  toggle ? 'bg-green-500' : 'bg-red-2'
                 } rounded-full`}
               ></span>
               <span
@@ -76,7 +76,7 @@ export default function Page() {
               {/* Copy Link */}
               <span
                 onClick={handleCopy}
-                className="bg-gray-50 px-3 p-1 shadow-inner pr-1 w-fit flex justify-between gap-3 rounded-full cursor-pointer"
+                className="bg-white-2 dark:bg-black-2 dark:text-white-2 text-black-2  px-3 p-1 shadow-inner pr-1 w-fit flex justify-between gap-3 rounded-full cursor-pointer"
               >
                 {sharedLink}
                 <AnimatePresence mode="wait">
@@ -98,7 +98,7 @@ export default function Page() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 5 }}
                       transition={{ duration: 0.3 }}
-                      className="bg-gray-200 shadow-inner cursor-pointer rounded-full p-0.5 px-2 text-sm"
+                      className="bg-white-1 dark:bg-black-1 shadow-inner cursor-pointer rounded-full p-0.5 px-2 text-sm"
                     >
                       Copy
                     </motion.span>

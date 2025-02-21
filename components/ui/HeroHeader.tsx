@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button'
 import { useAuth } from '@/store/Store'
 import Loader from './Loader'
 import LogoInitial from '../icons/LogoInitial'
+import DarkModeToggle from './DarkModeToggle'
 
 const HeroHeader = () => {
   const { isAuthenticated, loading, checkAuth } = useAuth()
@@ -15,7 +16,7 @@ const HeroHeader = () => {
 
   if (loading) {
     return (
-      <div className="max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl w-full flex items-center justify-between p-3 max-w-6xl mx-auto">
+      <div className="bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl w-full flex items-center justify-between p-3 max-w-6xl mx-auto">
         <LogoInitial />
         <Loader/>
       </div>
@@ -23,17 +24,21 @@ const HeroHeader = () => {
   }
 
   return (
-    <div className=''>
-      <div className="max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl flex items-center justify-between p-3 max-w-6xl mx-auto">
-      <LogoInitial />
-        <div className="flex gap-2">
+    <div>
+      <div className="bg-white-1 dark:bg-black-1 text-black-1 dark:text-white-1 max-md:max-w-md max-lg:max-w-lg max-xl:max-w-xl flex items-center justify-between p-3 max-w-6xl mx-auto">
+        <LogoInitial />
+        <div className="flex items-center w-fit gap-4">
+          <div className="">
+            <DarkModeToggle />
+          </div>
+
           {isAuthenticated ? (
-              <Link href="/dashboard">
-                <Button text="Dashboard" />
-              </Link>
+            <Link href="/dashboard">
+              <Button text="Dashboard" />
+            </Link>
           ) : (
-              <>
-                <Link href={'/signin'}>
+            <>
+              <Link href={'/signin'}>
                 <Button text="Signin" variant="secondary" size="md" />
               </Link>
               <Link href={'/signup'}>
@@ -44,7 +49,6 @@ const HeroHeader = () => {
                   css="border"
                 />
               </Link>
-
             </>
           )}
         </div>

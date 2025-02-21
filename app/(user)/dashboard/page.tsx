@@ -34,10 +34,6 @@ const Page = () => {
   const viewportWidth = useWindowResize()
   useInfiniteScroll()
 
-  // const loadContent = useCallback(() => {
-  //   if (!loadMore && hasMore) getChunks()
-  // }, [loadMore, hasMore, getChunks])
-
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
